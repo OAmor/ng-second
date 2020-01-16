@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Action } from 'src/app/model/actions';
-
-
+import { Observable, of, timer, interval } from 'rxjs';
 
 @Component({
   selector: 'app-exercice1',
@@ -10,26 +8,57 @@ import { Action } from 'src/app/model/actions';
 })
 export class Exercice1Component implements OnInit {
 
-  actions: Action[];
+  obs: Observable<number>;
 
-  action2: Action[];
+  val: number;
 
-  constructor() { }
+  time: Date;
 
-  actionClicked(a: Action) {
-    alert(`Vous avez cliqué ${a.title}`);
+  minutes: number;
+
+  seconds: number;
+
+  hours: number;
+
+  day: number;
+
+  month: number;
+
+  year: number;
+
+  constructor() {
+    this.time = new Date();
   }
 
   ngOnInit() {
-    this.actions = [
-      { title: 'Fichier', icon: 'file' },
-      { title: 'Edition', icon: 'edit' },
-      { title: 'Enregistrer', icon: 'save' }
-    ];
-    this.action2 = [
-      { title: 'Facebook', icon: 'fb' },
-      { title: 'Twitter', icon: 'twitter' }
-    ];
+      this.obs = interval(1000);
+      this.minutes = this.time.getMinutes();
+      this.seconds = this.time.getSeconds();
+      this.hours = this.time.getHours();
+      this.day = this.time.getDate();
+      this.month = this.time.getMonth()+1;
+      this.year = this.time.getFullYear();
+
+      const sub = this.obs.subscribe(
+          s => {
+              this.seconds++;
+              if (this.seconds === 60) {
+                  this.seconds = 0;
+                  this.minutes++;
+              }
+              if (this.minutes === 60) {
+                  this.minutes = 0;
+                  this.hours++;
+              }
+              if (this.hours === 24) {
+                  this.hours = 0;
+                  const d = new Date();
+                  this.day = d.getDate();
+                  this.month = d.getMonth()+1;
+                  this.year = d.getFullYear();
+              }
+          }
+      )
   }
 }
 
