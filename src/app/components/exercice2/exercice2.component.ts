@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../../services/movies/movies.service';
+import { finalize } from 'rxjs/operators'; 
 
 @Component({
   selector: 'app-exercice2',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Exercice2Component implements OnInit {
 
-  constructor() { }
+  data: any;
+  
+  loading: boolean;
+  
+  error: boolean = false;
+  
+  constructor(private $ser:MoviesService) { }
 
   ngOnInit() {
   }
 
+  getData() {
+      const observable = this.$ser.getData().pipe(
+          finalize(() => this.loading = false)
+      );
+      this.loading = true;
+      observable.subscribe(
+          s => {
+              this.data = s;
+              console.log(this.data);
+          },
+          error => this.error = true
+      );
+  }
 }
