@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TrainingService } from 'src/app/services/training/training.service';
+import { TrainingService } from '../../services/training/training.service';
 import { Observable, interval, timer } from 'rxjs';
 import { map, tap, take, mergeMap, mergeAll, mergeMapTo, switchMap, concatMap, delay } from 'rxjs/operators';
-import { Training } from 'src/app/model/training';
+import { Training } from '../../model/training';
 
 @Component({
   selector: 'app-exemple4',
