@@ -27,7 +27,7 @@ export class Exercice2Component implements OnInit {
       this.loading = true;
       observable.subscribe(
           s => {
-              this.data = s;
+              this.data = s.results;
               console.log(this.data);
           },
           error => this.error = true

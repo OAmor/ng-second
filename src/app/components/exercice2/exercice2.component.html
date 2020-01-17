@@ -1,4 +1,6 @@
 <app-header [title]="'Exercice 2'"></app-header>
 <div>
     <button (click)="getData()">Click me</button>
+    <p *ngIf="loading">loading ...</p>
+    <img width="300" height="300" *ngFor="let d of data" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{d.poster_path}}" />
 </div>
