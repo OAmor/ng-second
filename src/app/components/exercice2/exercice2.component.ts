@@ -12,7 +12,9 @@ export class Exercice2Component implements OnInit {
   data: any;
   
   loading: boolean;
-  
+
+  loadingVideo: boolean;
+
   error: boolean = false;
 
     mySlideImages = ['https://image.tmdb.org/t/p/w185_and_h278_bestv2//1yeVJox3rjo2jBKrrihIMj7uoS9.jpg',
@@ -61,4 +63,19 @@ export class Exercice2Component implements OnInit {
           error => this.error = true
       );
   }
+
+    getVideo() {
+        const observable = this.$ser.getVideo().pipe(
+            finalize(() => this.loadingVideo = false)
+        );
+        this.loadingVideo = true;
+        const _this = this;
+        observable.subscribe(
+            s => {
+                _this.data = s.results;
+                console.log(_this.data);
+            },
+            error => this.error = true
+        );
+    }
 }
