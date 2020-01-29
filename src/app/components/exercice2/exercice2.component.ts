@@ -21,7 +21,25 @@ export class Exercice2Component implements OnInit {
         'https://image.tmdb.org/t/p/w185_and_h278_bestv2//f9zGxLHGyQB10cMDZNY5ZcGKhZi.jpg'
     ];
 
-    mySlideOptions={items: 1, dots: true, nav: true};
+    mySlideOptions={
+        loop:true,
+        margin:10,
+        items:3,
+        dots:true,
+        autoplay:true,
+        autoplaySpeed:100,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        }};
   
   constructor(private $ser:MoviesService) { }
 

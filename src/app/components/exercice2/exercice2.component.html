@@ -5,8 +5,8 @@
 
     <owl-carousel [options]="mySlideOptions" [items]="images" [carouselClasses]="['owl-theme', 'sliding']" >
         <div class="item" *ngFor="let image of mySlideImages">
-            <div>
-                <img src={{image}}/>
+            <div style="width: 350px">
+                <img width="400" height="200" src={{image}}/>
             </div>
         </div>
     </owl-carousel>
