@@ -7,6 +7,8 @@
             <div class="item" *ngFor="let image of data" (click)="getVideo(image.id,image.name)">
                 <div>
                     <img style="width: 70% !important;margin: auto" height="300" src="https://image.tmdb.org/t/p/w300/{{image.poster_path}}"/>
+                    <p style="padding-left: 15px;font-weight: bold">{{image.title}}</p>
+                    <p style="padding-left: 15px;color: #777">{{image.overview.substring(0,35)}} ..</p>
                 </div>
             </div>
         </owl-carousel>
@@ -16,7 +18,7 @@
     <div class="video-trailer">
         <p *ngIf="loadingVideo" style="text-align: center;font-size: 18px;padding: 50px">Loading Video ...</p>
 
-        <iframe *ngIf="videoSelected" height="315"
+        <iframe style="width: 70%;" *ngIf="videoSelected" height="400"
                 [src]="urlSafe">
         </iframe>
     </div>
