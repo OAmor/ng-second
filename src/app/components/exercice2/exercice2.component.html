@@ -1,12 +1,23 @@
 <app-header [title]="'Exercice 2'"></app-header>
-<div>
+<div class="container">
     <p *ngIf="loading">loading ...</p>
 
-    <owl-carousel [options]="mySlideOptions" [items]="data" [carouselClasses]="['owl-theme', 'sliding']" >
-        <div class="item" *ngFor="let image of data">
-            <div style="width: 350px">
-                <img width="400" height="200" src="https://image.tmdb.org/t/p/w300/{{image.poster_path}}"/>
+    <div style="width: 80%;position: relative;margin: auto">
+        <owl-carousel [options]="mySlideOptions" [items]="data" [carouselClasses]="['owl-theme', 'sliding']" >
+            <div class="item" *ngFor="let image of data" (click)="getVideo(image.id,image.name)">
+                <div>
+                    <img style="width: 70% !important;margin: auto" height="300" src="https://image.tmdb.org/t/p/w300/{{image.poster_path}}"/>
+                </div>
             </div>
-        </div>
-    </owl-carousel>
+        </owl-carousel>
+    </div>
+
+
+    <div class="video-trailer">
+        <p *ngIf="loadingVideo" style="text-align: center;font-size: 18px;padding: 50px">Loading Video ...</p>
+
+        <iframe *ngIf="videoSelected" height="315"
+                [src]="urlSafe">
+        </iframe>
+    </div>
 </div>
