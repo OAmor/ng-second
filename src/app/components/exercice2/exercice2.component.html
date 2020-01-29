@@ -2,5 +2,12 @@
 <div>
     <button (click)="getData()">Click me</button>
     <p *ngIf="loading">loading ...</p>
-    <img width="300" height="300" *ngFor="let d of data" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{d.poster_path}}" />
+
+    <owl-carousel [options]="mySlideOptions" [items]="images" [carouselClasses]="['owl-theme', 'sliding']" >
+        <div class="item" *ngFor="let image of mySlideImages">
+            <div>
+                <img src={{image}}/>
+            </div>
+        </div>
+    </owl-carousel>
 </div>

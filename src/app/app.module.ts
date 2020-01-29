@@ -22,6 +22,9 @@ import { CountComponent } from './components/count/count.component';
 import { BestComponent } from './components/best/best.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Exemple8Component } from './components/exemple8/exemple8.component';
+import { OwlModule } from 'ngx-owl-carousel';
+import * as $ from 'jquery';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,11 +50,12 @@ import { Exemple8Component } from './components/exemple8/exemple8.component';
     BrowserModule,
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OwlModule
   ],
   providers: [
 
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
