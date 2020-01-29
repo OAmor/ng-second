@@ -44,6 +44,7 @@ export class Exercice2Component implements OnInit {
   constructor(private $ser:MoviesService) { }
 
   ngOnInit() {
+      this.getData();
   }
 
   getData() {
@@ -51,10 +52,11 @@ export class Exercice2Component implements OnInit {
           finalize(() => this.loading = false)
       );
       this.loading = true;
+      const _this = this;
       observable.subscribe(
           s => {
-              this.data = s.results;
-              console.log(this.data);
+              _this.data = s.results;
+              console.log(_this.data);
           },
           error => this.error = true
       );

@@ -1,12 +1,11 @@
 <app-header [title]="'Exercice 2'"></app-header>
 <div>
-    <button (click)="getData()">Click me</button>
     <p *ngIf="loading">loading ...</p>
 
-    <owl-carousel [options]="mySlideOptions" [items]="images" [carouselClasses]="['owl-theme', 'sliding']" >
-        <div class="item" *ngFor="let image of mySlideImages">
+    <owl-carousel [options]="mySlideOptions" [items]="data" [carouselClasses]="['owl-theme', 'sliding']" >
+        <div class="item" *ngFor="let image of data">
             <div style="width: 350px">
-                <img width="400" height="200" src={{image}}/>
+                <img width="400" height="200" src="https://image.tmdb.org/t/p/w300/{{image.poster_path}}"/>
             </div>
         </div>
     </owl-carousel>
