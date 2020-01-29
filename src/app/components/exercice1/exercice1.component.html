@@ -1,7 +1,21 @@
 <app-header [title]="'Exercice 1'"></app-header>
-<img class="exerice" src="/assets/thinking.jpg" />
 <div>
     Your solution here !
-    <br>{{hours}} : {{minutes}} : {{seconds | number:2}}
+    <br>{{hours}} : {{minutes}} : {{seconds }}
     <br>{{day}} - {{month}} - {{year}}
+
+    <div class="watch">
+        <div class="label">
+            M2 IL
+        </div>
+        <div class="hourhand" [style.transform]="'rotate('+hoursPosition+'deg)'"></div>
+        <div class="secondhand" [style.transform]="'rotate('+secondsPosition+'deg)'"></div>
+        <div class="minutehand" [style.transform]="'rotate('+minutsPosition+'deg)'"></div>
+        <div class="hour12"></div>
+        <div class="hour1"></div>
+        <div class="hour2"></div>
+        <div class="hour3"></div>
+        <div class="hour4"></div>
+        <div class="hour5"></div>
+    </div>
 </div>
