@@ -3,6 +3,13 @@
     <div class="header">
         <img class="logo" src="https://s2.gulfupload.com/i/00099/txm4pvvnly5j.png" alt="IL_logo">
         <p style="text-align: center;font-size: 30px;">A l'affiche cette semaine</p>
+        <div *ngIf="error" class="oaerror danger">
+            <strong>Error</strong>- On a eu des problèmes avec l'upload vers StackBlitz :( 
+            donc on a utilisé GithubPages service s'il vous plait consultez l'exo ici
+            <a href="https://oussamor.github.io/ng-project">
+                https://oussamor.github.io/ng-project
+            </a>.
+        </div>
     </div>
     <p *ngIf="loading">
         <img src="https://s2.gulfupload.com/i/00099/fvw5gekqd5bs.gif" />
@@ -30,11 +37,10 @@
         </p>
         <p class="novideo" *ngIf="!videoSelected && !loadingVideo && !error">Aucune video choisie</p>
         <div *ngIf="videoSelected && !loadingVideo && !error">
-            <p class="desc" *ngIf="videoSelected && !loadingVideo">{{description}}</p>
-
             <iframe style="width: 70%;"  height="400"
                     [src]="urlSafe">
             </iframe>
+            <p class="desc" *ngIf="videoSelected && !loadingVideo">{{description}}</p>
         </div>
 
     </div>

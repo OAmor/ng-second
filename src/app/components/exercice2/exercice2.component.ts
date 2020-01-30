@@ -14,6 +14,8 @@ export class Exercice2Component implements OnInit {
 
     video: any;
 
+    blitz: boolean;
+
     description: string;
 
     urlSafe: SafeResourceUrl;
@@ -40,6 +42,7 @@ export class Exercice2Component implements OnInit {
     constructor(private $ser:MoviesService,public sanitizer: DomSanitizer) { }
 
     ngOnInit() {
+        this.blitz = (window.location.hostname == 'stackblitz')?true:false;
       this.getData();
     }
 
