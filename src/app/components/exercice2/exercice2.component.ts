@@ -33,8 +33,8 @@ export class Exercice2Component implements OnInit {
         dots: false,
         nav:true,
         navText: [
-            '<p style="position: absolute;top: 100px;left: -50px"><img style="border: 2px solid #fd0041;padding: 5px 0" width="32" src="../../../assets/left-chevron.png"/></p>',
-            '<p style="position: absolute;top: 100px;right: -50px"><img style="border: 2px solid #fd0041;padding: 5px 0" width="32" src="../../../assets/right-chevron.png"/></p>' ],
+            '<p style="position: absolute;top: 100px;left: -50px"><img style="border: 2px solid #fd0041;padding: 5px 0" width="32" src="/assets/left-chevron.png"/></p>',
+            '<p style="position: absolute;top: 100px;right: -50px"><img style="border: 2px solid #fd0041;padding: 5px 0" width="32" src="/assets/right-chevron.png"/></p>' ],
         };
   
     constructor(private $ser:MoviesService,public sanitizer: DomSanitizer) { }
