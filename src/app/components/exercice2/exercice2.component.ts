@@ -43,7 +43,8 @@ export class Exercice2Component implements OnInit {
 
     ngOnInit() {
         // To display stackblitz error msg
-        this.blitz = (window.location.hostname == 'zzmivqpoq.github.stackblitz.io')?true:false;
+        this.blitz = (window.location.hostname.indexOf('stackblitz') !== -1)?true:false;
+        console.log(this.blitz);
       this.getData();
     }
 
