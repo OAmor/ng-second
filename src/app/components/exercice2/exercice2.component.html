@@ -1,6 +1,12 @@
 <app-header [title]="'Exercice 2'"></app-header>
 <div class="container">
-    <p *ngIf="loading">loading ...</p>
+    <div class="header">
+        <img class="logo" src="../../../assets/logo.png" alt="IL_logo">
+        <p style="text-align: center;font-size: 30px;">A l'affiche cette semaine</p>
+    </div>
+    <p *ngIf="loading">
+        <img src="/assets/loader.gif" />
+    </p>
 
     <div style="width: 80%;position: relative;margin: auto">
         <owl-carousel [options]="mySlideOptions" [items]="data" [carouselClasses]="['owl-theme', 'sliding']" >
@@ -14,12 +20,19 @@
         </owl-carousel>
     </div>
 
+    <div *ngIf="error" class="oaerror danger">
+        <strong>Error</strong>- Ooops il y a un problème quelque part :) .
+    </div>
 
     <div class="video-trailer">
-        <p *ngIf="loadingVideo" style="text-align: center;font-size: 18px;padding: 50px">Loading Video ...</p>
-
-        <iframe style="width: 70%;" *ngIf="videoSelected" height="400"
+        <p *ngIf="loadingVideo" style="text-align: center;font-size: 18px;padding: 50px">
+            <img src="/assets/loader.gif" />
+        </p>
+        <p class="novideo" *ngIf="!videoSelected && !loadingVideo">Aucune video choisie</p>
+        <iframe style="width: 70%;" *ngIf="videoSelected && !loadingVideo" height="400"
                 [src]="urlSafe">
         </iframe>
     </div>
+
+    <p style="text-align: center;padding: 50px 0;font-size: 22px">Built with <span style="color: #fd0041;font-weight: bolder"><3</span> IL.</p>
 </div>
