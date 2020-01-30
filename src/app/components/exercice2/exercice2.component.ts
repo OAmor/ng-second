@@ -43,6 +43,8 @@ export class Exercice2Component implements OnInit {
 
     ngOnInit() {
         this.blitz = (window.location.hostname == 'stackblitz')?true:false;
+        console.log(window.location.hostname);
+        console.log(this.blitz);
       this.getData();
     }
 
