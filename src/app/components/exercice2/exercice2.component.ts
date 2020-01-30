@@ -14,6 +14,8 @@ export class Exercice2Component implements OnInit {
 
     video: any;
 
+    description: string;
+
     urlSafe: SafeResourceUrl;
 
     videoSelected: boolean = false;
@@ -60,9 +62,7 @@ export class Exercice2Component implements OnInit {
       );
     }
 
-    getVideo(id,t) {
-        console.log(t);
-        console.log("video ==> "+id);
+    getVideo(id,text) {
         const observable = this.$ser.getVideo(id).pipe(
             finalize(() => this.loadingVideo = false)
         );
@@ -72,9 +72,9 @@ export class Exercice2Component implements OnInit {
             s => {
                 this.loadingVideo = false;
                 this.videoSelected = true;
+                this.description = text;
                 _this.video = s.results[0];
                 this.urlSafe = this.getSafeUrl('https://www.youtube.com/embed/'+_this.video.key);
-                console.log(_this.video.key);
             },
             error => this.error = true
         );
