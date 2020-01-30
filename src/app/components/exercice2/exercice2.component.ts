@@ -42,9 +42,8 @@ export class Exercice2Component implements OnInit {
     constructor(private $ser:MoviesService,public sanitizer: DomSanitizer) { }
 
     ngOnInit() {
-        this.blitz = (window.location.hostname == 'stackblitz')?true:false;
-        console.log(window.location.hostname);
-        console.log(this.blitz);
+        // To display stackblitz error msg
+        this.blitz = (window.location.hostname == 'zzmivqpoq.github.stackblitz.io')?true:false;
       this.getData();
     }
 
